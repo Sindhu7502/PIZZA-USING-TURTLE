@@ -1,0 +1,42 @@
+import turtle
+turtle.Screen().bgcolor("pink")
+screen=turtle.Screen()
+screen.title("My First Pizza")
+pointer=turtle.Turtle()
+SAUCE="maroon"
+OLIVELEAF="green"
+CHEESE="#FBC70F"
+CRUST="#ECA84F"
+pointer.pensize(5)
+pointer.shape("circle")
+PEPPRONI_LOCATIONS=[[12,34],[56,78],[71,215],[-85,175],[20,120],[60,156],[-30,205],[-70,105],[-25,150],[80,90]]
+olive=[[10,70],[-88,79],[-56,140],[-25,180],[24,180],[-1,200],[90,90],[91,185]]
+def draw_circle(radius,line_color,fill_color):
+    pointer.color(line_color)
+    pointer.fillcolor(fill_color)
+    pointer.begin_fill()
+    pointer.circle(radius)
+    pointer.end_fill()
+def move_turtle(x,y):
+    pointer.up()
+    pointer.goto(x,y)
+    pointer.down()
+draw_circle(150,CRUST,CRUST)
+move_turtle(0,25)
+draw_circle(125,SAUCE,CHEESE)
+for i in PEPPRONI_LOCATIONS:
+    move_turtle(i[0],i[1])
+    draw_circle(8,SAUCE,SAUCE)
+for i in olive:
+    move_turtle(i[0],i[1])
+    draw_circle(5,OLIVELEAF,OLIVELEAF)
+move_turtle(0,150)#pizza center
+pointer.color("pink")
+for i in range(0,6):
+    pointer.pendown()
+    pointer.left(60)
+    pointer.forward(150)
+    pointer.penup()
+    pointer.backward(150)
+turtle.done()
+
